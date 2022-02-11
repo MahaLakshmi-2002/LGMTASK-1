@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO LIST</title>
+    <style>
+        *{
+            margin: 0;padding: 0;
+            box-sizing: border-box;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            
+        }
+        header{
+            height: 50px;
+            width: 500px;
+            background-color:salmon;
+            
+            margin-left:515px ;
+            margin-top: 50px;
+            border-radius: 9px;
+
+        }
+        header h1{
+            text-align: center;
+            padding: 10px;
+            color: white;
+        }
+        #add{
+            background-color:rgba(247, 172, 10, 0.911);
+            padding: 6px;
+        }
+        #add:hover{
+            cursor: pointer;
+            background-color: rgb(153, 93, 83);
+        }
+        main{
+            width: 500px;
+            height: 500px;
+            border: 4px tomato solid;
+            border-radius: 15px;
+            margin: 50px auto;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        form{
+            margin: 20px;
+        }
+        
+        #text{
+            height: 30px;
+            margin-right: 10px;
+            padding: 0 10px;
+
+        }
+        ul{
+            list-style: none;
+            background-color: burlywood;
+            width: 100%;
+        }
+        li{
+            position: relative;
+            padding: 10px;
+        }
+        .close{
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 10px;
+        }
+        .close:hover{
+            background-color: thistle;
+        }
+    </style>
+</head>
+<body background="https://www.dreamtemplate.com/dreamcodes/bg_images/color/c21.jpg">
+    <header>
+       <h1>TO-DO LIST</h1> 
+    </header>
+    <main>
+        <form>
+        <input type="text" placeholder="Enter The Task" id="text">
+        <span onclick="mylist()" id=add>Add</span>
+        </form>
+        <ul id="ul">
+            <li>Study</li>
+            <li>Play</li>
+        </ul>
+    </main>
+    <script>
+        var list=document.getElementsByTagName("li");
+        for(var i = 0;i < list.length;i++){
+            var span=document.createElement("span");
+            span.className="close"
+            var close=document.createTextNode("x");
+            span.appendChild(close);
+            list[i].appendChild(span);
+
+        }
+        var close=document.getElementsByClassName("close");
+        for (i=0;i<close.length;i++){
+            close[i].onclick=function(){
+                var d=this.parentElement;
+                d.style.display="none";
+            }
+        }
+
+
+        function mylist(){
+            var li=document.createElement("li");
+            var text=document.getElementById("text").value;
+            var t=document.createTextNode(text);
+            li.appendChild(t);
+            if (text==""){
+                alert("inpuut field is empty");
+            }
+            else{
+                document.getElementById("ul").appendChild(li)
+            }
+            var list=document.getElementsByTagName("li");
+            for(var i = 0;i < list.length;i++){
+            var span=document.createElement("span");
+            span.className="close"
+            var close=document.createTextNode("x");
+            span.appendChild(close);
+            list[i].appendChild(span);
+
+            }
+            var close=document.getElementsByClassName("close");
+            for (i=0;i<close.length;i++){
+                close[i].onclick=function(){
+                var d=this.parentElement;
+                d.style.display="none";
+            }
+        }
+
+        }
+            
+    </script>
+    
+</body>
+</html>
